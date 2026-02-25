@@ -35,19 +35,19 @@ const Skills: React.FC = () => {
 
   const COUNTRIES = ['Kenya', 'Uganda', 'Tanzania', 'Rwanda', 'Burundi', 'Unknown'];
 
-  // Fetch skills data from API
-  useEffect(() => {
-    fetch('/api/skills/')
-      .then(res => res.json())
-      .then((data: SkillData[]) => {
-        setSkillsData(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Error fetching skills:', err);
-        setLoading(false);
-      });
-  }, []);
+  // Fetch skills data from Render backend
+useEffect(() => {
+  fetch('https://job-forecast-app-backend-nt19.onrender.com/api/skills/')
+    .then(res => res.json())
+    .then((data: SkillData[]) => {
+      setSkillsData(data);
+      setLoading(false);
+    })
+    .catch(err => {
+      console.error('Error fetching skills:', err);
+      setLoading(false);
+    });
+}, []);
 
   if (loading) return <div>Loading skills data...</div>;
 
