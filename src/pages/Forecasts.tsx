@@ -27,24 +27,26 @@ const Forecasts: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // -------------------- Fetch Data --------------------
 
-  useEffect(() => {
-    const fetchForecast = async () => {
-      try {
-        const res = await fetch("api/forecast/");
-        if (!res.ok) throw new Error("Failed to fetch forecast data");
-        const json: ForecastItem[] = await res.json();
-        setData(json);
-      } catch (err: any) {
-        console.error("Forecast fetch error:", err);
-        setError(err.message || "Unknown error");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchForecast();
-  }, []);
+  // -------------------- Fetch Data --------------------
+useEffect(() => {
+  const fetchForecast = async () => {
+    try {
+      const res = await fetch(
+        "https://job-forecast-app-backend-nt19.onrender.com/api/forecast/"
+      );
+      if (!res.ok) throw new Error("Failed to fetch forecast data");
+      const json: ForecastItem[] = await res.json();
+      setData(json);
+    } catch (err: any) {
+      console.error("Forecast fetch error:", err);
+      setError(err.message || "Unknown error");
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchForecast();
+}, []);
 
   // -------------------- Aggregate Forecast by Month --------------------
 
