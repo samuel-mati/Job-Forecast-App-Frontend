@@ -33,7 +33,7 @@ useEffect(() => {
   const fetchForecast = async () => {
     try {
       const res = await fetch(
-        "https://job-forecast-app-backend-nt19.onrender.com/api/forecast/"
+        "https://job-forecast-app-backend-nt19.onrender.com/api/api/forecast/"
       );
       if (!res.ok) throw new Error("Failed to fetch forecast data");
       const json: ForecastItem[] = await res.json();
