@@ -31,25 +31,27 @@ const Jobs: React.FC = () => {
   const [rolesData, setRolesData] = useState<JobRole[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // -------------------- Fetch Jobs Data --------------------
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const res = await fetch("/api/jobs/");
-        const data: JobRole[] = await res.json();
+// -------------------- Fetch Jobs Data --------------------
+useEffect(() => {
+  const fetchJobs = async () => {
+    try {
+      const res = await fetch(
+        "https://job-forecast-app-backend-nt19.onrender.com/api/jobs/"
+      );
+      const data: JobRole[] = await res.json();
 
-        // Sort descending by count and pick top 6
-        const sorted = [...data].sort((a, b) => b.count - a.count);
-        setRolesData(sorted.slice(0, 6));
-      } catch (err) {
-        console.error("Failed to fetch job roles:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+      // Sort descending by count and pick top 6
+      const sorted = [...data].sort((a, b) => b.count - a.count);
+      setRolesData(sorted.slice(0, 6));
+    } catch (err) {
+      console.error("Failed to fetch job roles:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchJobs();
-  }, []);
+  fetchJobs();
+}, []);
 
   // -------------------- Loading / Empty States --------------------
   if (loading) {
