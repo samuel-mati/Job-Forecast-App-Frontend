@@ -54,7 +54,7 @@ const Dashboard: React.FC = () => {
       try {
         setLoading(true);
         setError(null);
-        const res = await fetch(`${BASE_URL}/dashboard/`);
+        const res = await fetch(`${BASE_URL}api/dashboard/`);
         if (!res.ok) throw new Error(`HTTP error ${res.status}`);
         const json: DashboardData = await res.json();
         setData(json);
