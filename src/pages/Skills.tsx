@@ -37,7 +37,7 @@ const Skills: React.FC = () => {
 
   // Fetch skills data from Render backend
 useEffect(() => {
-  fetch('https://job-forecast-app-backend-nt19.onrender.com/api/skills/')
+  fetch('https://job-forecast-app-backend-nt19.onrender.com/api/api/skills/')
     .then(res => res.json())
     .then((data: SkillData[]) => {
       setSkillsData(data);
