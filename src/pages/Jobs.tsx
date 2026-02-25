@@ -36,7 +36,7 @@ useEffect(() => {
   const fetchJobs = async () => {
     try {
       const res = await fetch(
-        "https://job-forecast-app-backend-nt19.onrender.com/api/jobs/"
+        "https://job-forecast-app-backend-nt19.onrender.com/api/api/jobs/"
       );
       const data: JobRole[] = await res.json();
 
