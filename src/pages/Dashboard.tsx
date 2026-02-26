@@ -267,7 +267,7 @@ const Dashboard: React.FC = () => {
       <Chat
         onAsk={async (question) => {
           try {
-            const res = await fetch(`${BASE_URL}/api/forecast/ask`, {
+            const res = await fetch(`${BASE_URL}/api/api/forecast/ask`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
