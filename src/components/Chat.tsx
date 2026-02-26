@@ -54,7 +54,7 @@ const Chat: React.FC<ChatProps> = ({ onAsk }) => {
         <div className="fixed inset-0 bg-black/50 flex justify-end z-50">
           <div className="w-full md:w-[360px] bg-card p-4 flex flex-col h-full">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="font-bold text-lg">Ask Forecast AI</h2>
+              <h2 className="font-bold text-lg">Ask Job Forecast</h2>
               <button
                 className="text-gray-400 hover:text-white"
                 onClick={() => setChatOpen(false)}
