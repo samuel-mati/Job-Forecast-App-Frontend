@@ -23,7 +23,7 @@ const Chat: React.FC<ChatProps> = ({ onAsk }) => {
         setAnswer(response);
       } else {
         // Default behavior: call local API
-        const res = await fetch("https://job-forecast-app-backend-nt19.onrender.com/api/forecast/ask", {
+        const res = await fetch("https://job-forecast-app-backend-nt19.onrender.com/api/api/forecast/ask", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ question }),
